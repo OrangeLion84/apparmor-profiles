@@ -46,6 +46,6 @@
   deny /home/*/Videos/** rw,
   deny /home/*/Desktop/** rw,
   deny /home/*/Music/** rw,
-  deny network, 
+  #deny network, 
   
 }
