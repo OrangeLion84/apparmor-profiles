@@ -1,0 +1,52 @@
+# Last Modified: Tue Jun 29 02:41:21 2021
+#include <tunables/global>
+
+# vim:syntax=apparmor
+# AppArmor policy for sublime_text
+# ###AUTHOR###
+# ###COPYRIGHT###
+# ###COMMENT###
+# No template variables specified
+
+
+/home/bhaskar/opt/sublime_text/sublime_text {
+  #include <abstractions/X>
+  #include <abstractions/audio>
+  #include <abstractions/base>
+  #include <abstractions/dbus-session-strict>
+  #include <abstractions/dbus-strict>
+  #include <abstractions/gnome>
+  #include <abstractions/nameservice>
+  #include <abstractions/ubuntu-browsers.d/ubuntu-integration>
+  
+  deny /usr/lib/firefox/firefox.sh x,
+
+  /home/bhaskar/opt/sublime_text/sublime_text mrix,
+  /run/mount/utab r,
+  /usr/share/mime/mime.cache r,
+  owner /dev/shm/** l,
+  owner /dev/shm/** rw,
+  owner /home/*/.cache/sublime-text/ rw,
+  owner /home/*/.cache/sublime-text/** rw,
+  owner /home/*/.config/dconf/user r,
+  owner /home/*/.config/sublime-text/ rw,
+  owner /home/*/.config/sublime-text/** rw,
+  owner /home/*/.icons/Yaru-Teal/16x16/categories/ r,
+  owner /home/*/.icons/Yaru-Teal/16x16/devices/ r,
+  owner /home/*/.icons/Yaru-Teal/8x8/emblems/ r,
+  owner /home/*/.icons/Yaru-Teal/index.theme r,
+  owner /home/*/.local/share/mime/mime.cache r,
+  owner /home/*/.local/share/recently-used.xbel rw,
+  owner /home/*/.local/share/recently-used.xbel.BLSD50 rw,
+  owner /home/*/opt/sublime_text/ rw,
+  owner /home/*/opt/sublime_text/** mixrw,
+  deny /home/*/Downloads/** rw,
+  deny /home/*/Documents/** rw,
+  deny /home/*/Private/** rw,
+  deny /home/*/Pictures/** rw,
+  deny /home/*/Videos/** rw,
+  deny /home/*/Desktop/** rw,
+  deny /home/*/Music/** rw,
+  #deny network, 
+  
+}
